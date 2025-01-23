@@ -160,7 +160,7 @@ module Sass::Script::Tree
     # @return [Sass::Script::Value::String]
     #   The SassScript string that is the value of the interpolation
     def _perform(environment)
-      res = ""
+      res = "".dup
       res << @before.perform(environment).to_s if @before
       res << " " if @before && @whitespace_before
 

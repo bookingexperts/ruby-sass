@@ -83,7 +83,7 @@ module Sass
         sel = selector
         return unless sel
         selectors = [sel]
-        ws = ''
+        ws = ''.dup
         while tok(/,/)
           ws << str {ss}
           next unless (sel = selector)
@@ -91,7 +91,7 @@ module Sass
           if ws.include?("\n")
             selectors[-1] = Selector::Sequence.new(["\n"] + selectors.last.members)
           end
-          ws = ''
+          ws = ''.dup
         end
         Selector::CommaSequence.new(selectors)
       end
